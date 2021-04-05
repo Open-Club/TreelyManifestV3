@@ -26,8 +26,7 @@ const Content = () => {
       position: "fixed",
       left: 0,
       top: 0,
-      zIndex: 99999999999999,
-      color: "black"
+      zIndex: 99999999999999
     },
     burgerMenu: {
       bmBurgerButton: {
@@ -76,6 +75,7 @@ const Content = () => {
         <Menu
           styles={styles.burgerMenu}
           isOpen={indicatorHovered}
+          onStateChange={(state) => setIndicatorHovered(state.isOpen)}
         />
       </div>
       <div
