@@ -1,11 +1,11 @@
 {
-  "name": "chrome-extension-boilerplate-react",
-  "version": "4.0.1",
-  "description": "A chrome extension boilerplate built with React 17 and Webpack 5",
+  "name": "treely",
+  "version": "0.2.4",
+  "description": "Display tabs in a hierarchical structure similar to a tree",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lxieyang/chrome-extension-boilerplate-react.git"
+    "url": "https://github.com/Open-Club/TreelyManifestV3.git"
   },
   "scripts": {
     "build": "node utils/build.js",
