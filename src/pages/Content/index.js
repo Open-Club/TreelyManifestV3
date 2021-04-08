@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { slide as Menu } from 'react-burger-menu'
-
+import ApplicationManager from "../Features/ApplicationManager";
+import IframeStyle from '../Features/util/IframeStyle'
+import Iframe from "../Features/util/IFrame"
 
 const Content = () => {
 
@@ -46,16 +48,15 @@ const Content = () => {
         height: '100%'
       },
       bmMenu: {
-        background: '#373a47',
-        padding: '2.5em 1.5em 0',
+        background: 'white',
+        padding: '0.5em 0em 0',
         fontSize: '1.15em'
       },
       bmMorphShape: {
         fill: '#373a47'
       },
       bmItemList: {
-        color: '#b8b7ad',
-        padding: '0.8em'
+        overflow: "hidden"
       },
       bmItem: {
         display: 'inline-block'
@@ -72,11 +73,22 @@ const Content = () => {
         id={"treely_wrapper"}
         style={styles.wrapper}
       >
-        <Menu
-          styles={styles.burgerMenu}
-          isOpen={indicatorHovered}
-          onStateChange={(state) => setIndicatorHovered(state.isOpen)}
-        />
+        <Iframe
+          id={"treely_IFrame"}
+          style={"inline"}
+          styleSheet={[chrome.runtime.getURL("App.css")]}
+          css={IframeStyle()}
+        >
+          <Menu
+            styles={styles.burgerMenu}
+            isOpen={indicatorHovered}
+            onStateChange={(state) => setIndicatorHovered(state.isOpen)}
+          >
+            <ApplicationManager />
+          </Menu>
+
+        </Iframe>
+
       </div>
       <div
         id={"treely_indicator"}
