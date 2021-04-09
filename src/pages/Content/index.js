@@ -78,7 +78,10 @@ const Content = () => {
           style={"inline"}
           styleSheet={[chrome.runtime.getURL("App.css")]}
           css={IframeStyle()}
-        >
+        > {
+            /*
+            */
+          }
           <Menu
             styles={styles.burgerMenu}
             isOpen={indicatorHovered}
