@@ -13,23 +13,22 @@ const TabTitle = ({ item }) => {
     titleLogo: {
       display: "inline",
       marginRight: "10px",
-      verticalAlign: "text-bottom",
+      verticalAlign: "middle",
       width: "16px",
       height: "16px"
     },
     titleWrapper: {
-      display: "flex"
+      display: "flex",
+      padding: "4px 5px 4px 10px"
     },
     titleRight: {
       whiteSpace: "nowrap",
       display: "flex",
       alignItems: "center"
     },
-    titleIcon: {
-      width: "24px",
-      height: "24px",
-      padding: "0 6px",
-      color: "rgba(41,47,61,.5)"
+    titleText: {
+      fontFamily: "system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji'",
+      verticalAlign: "middle"
     }
   }
 
@@ -48,7 +47,7 @@ const TabTitle = ({ item }) => {
     <div className="ant-tree-title-wrapper" style={styles.titleWrapper}>
       <div className="ant-tree-title-left" style={styles.titleLeft}>
         <img className="ant-tree-title-logo" style={styles.titleLogo} border="0" src={[chrome.runtime.getURL("icon-blank.png")]} />
-        <span className="ant-tree-title-text">{item.status == "loading" ? item.url.includes("") ? "New Tab" : item.url : item.title}</span>
+        <span className="ant-tree-title-text" style={styles.titleText}>{item.status == "loading" ? item.url.includes("") ? "New Tab" : item.url : item.title}</span>
         {/*soundIcon*/}
       </div>
       <div className="ant-tree-title-right" style={styles.titleRight}>

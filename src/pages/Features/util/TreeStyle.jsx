@@ -337,12 +337,14 @@ const TreeStyle = () => {
             -moz-user-select: none;
               -ms-user-select: none;
                   user-select: none;
+          padding: 4px 0;
+          margin: 0 5px 0 0;
         }
         .ant-tree-switcher .ant-tree-switcher-icon,
         .ant-tree-switcher .ant-select-tree-switcher-icon {
-          display: table-cell;
-          font-size: 10px;
-          vertical-align: bottom;
+          font-size: 12px;
+          vertical-align: text-top;
+          color: rgba(41, 47, 61, 0.5);
         }
         .ant-tree-switcher .ant-tree-switcher-icon svg,
         .ant-tree-switcher .ant-select-tree-switcher-icon svg {
@@ -389,30 +391,50 @@ const TreeStyle = () => {
           z-index: auto;
           min-height: 24px;
           margin: 0;
-          padding: 4px 10px 4px 10px;
+          padding: 0;
           color: inherit;
           line-height: 24px;
           background: transparent;
-          border-radius: 2px;
+          border-radius: 0px;
           cursor: pointer;
           transition: all 0.3s, border 0s, line-height 0s, box-shadow 0s;
           display: inline-block;
-          width: 100;
+          width: 0;
+          border-left: 3px solid transparent;
         }
         .ant-tree .ant-tree-node-content-wrapper:hover {
           background-color: #f5f5f5;
         }
+
+        .ant-tree.ant-tree-block-node .ant-tree-list-holder-inner .ant-tree-node-content-wrapper:hover{
+          border-left: 3px solid #393E46;
+        }
         .ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
-          background-color: #bae7ff;
+          background-color: #f5f5f5;
         }
         .ant-tree .ant-tree-node-content-wrapper .ant-tree-iconEle {
           display: none;
 
         }
 
+        .ant-tree-title-icon {
+          width: 16px;
+          height: 16px;
+          padding: 4px 4px;
+          color: rgba(41,47,61,.5);
+          vertical-align: middle;
+          display: none;
+        }
+
+
+        .ant-tree-node-content-wrapper:hover .ant-tree-title-icon {
+          display: block;
+        }
+
         .ant-tree-title-icon:hover {
           color: rgba(41,47,61,.75);
           background: rgba(41,47,61,.07);
+
         }
 
 
@@ -434,7 +456,7 @@ const TreeStyle = () => {
           position: absolute;
           z-index: 1;
           height: 2px;
-          background-color: #1890ff;
+          background-color: #393E46;
           border-radius: 1px;
           pointer-events: none;
         }
@@ -445,12 +467,12 @@ const TreeStyle = () => {
           width: 8px;
           height: 8px;
           background-color: transparent;
-          border: 2px solid #1890ff;
+          border: 2px solid #393E46;
           border-radius: 50%;
           content: '';
         }
         .ant-tree .ant-tree-treenode.drop-container > [draggable] {
-          box-shadow: 0 0 0 2px #1890ff;
+          box-shadow: 0 0 0 2px #393E46;
         }
         .ant-tree-show-line .ant-tree-indent-unit {
           position: relative;

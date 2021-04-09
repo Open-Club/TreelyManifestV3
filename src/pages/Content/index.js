@@ -1,10 +1,10 @@
 /*global chrome*/
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import { slide as Menu } from 'react-burger-menu'
-import ApplicationManager from "../Features/ApplicationManager";
-import IframeStyle from '../Features/util/IframeStyle'
-import Iframe from "../Features/util/IFrame"
+import ApplicationManager from "../Features/ApplicationManager"
+import ShadowRootStyle from '../Features/util/ShadowRootStyle'
+import ReactShadowRoot from 'react-shadow-root'
 
 const Content = () => {
 
@@ -73,15 +73,8 @@ const Content = () => {
         id={"treely_wrapper"}
         style={styles.wrapper}
       >
-        <Iframe
-          id={"treely_IFrame"}
-          style={"inline"}
-          styleSheet={[chrome.runtime.getURL("App.css")]}
-          css={IframeStyle()}
-        > {
-            /*
-            */
-          }
+        <ReactShadowRoot>
+          <style>{ShadowRootStyle()}</style>
           <Menu
             styles={styles.burgerMenu}
             isOpen={indicatorHovered}
@@ -90,7 +83,11 @@ const Content = () => {
             <ApplicationManager />
           </Menu>
 
-        </Iframe>
+        </ReactShadowRoot>
+            /*
+            */
+          }
+
 
       </div>
       <div

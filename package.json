@@ -25,6 +25,7 @@
     "react-burger-menu": "git+https://github.com/j-acks0n/react-burger-menu-old.git",
     "react-dom": "^17.0.1",
     "react-hot-loader": "^4.13.0",
+    "react-shadow-root": "^5.0.4",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
