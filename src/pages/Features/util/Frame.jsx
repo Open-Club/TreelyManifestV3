@@ -101,7 +101,7 @@ class Frame extends Component {
     this.head = frame.contentDocument.head;
     this.body = frame.contentDocument.body;
     this.body.id = "treelyBody"
-    this.body.style = "margin:0; font-family: Roboto, sans-serif; height: 100%;";
+    this.body.style = "margin:0; height: 100%;";
 
     this.body.appendChild(treelyRoot);
 

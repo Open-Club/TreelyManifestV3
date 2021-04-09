@@ -396,8 +396,8 @@ const TreeStyle = () => {
           border-radius: 2px;
           cursor: pointer;
           transition: all 0.3s, border 0s, line-height 0s, box-shadow 0s;
-          //display: flex;
-          //align-items: center;
+          display: inline-block;
+          width: 100;
         }
         .ant-tree .ant-tree-node-content-wrapper:hover {
           background-color: #f5f5f5;
@@ -406,38 +406,15 @@ const TreeStyle = () => {
           background-color: #bae7ff;
         }
         .ant-tree .ant-tree-node-content-wrapper .ant-tree-iconEle {
-          display: inline-block;
-          width: 24px;
-          height: 24px;
-          line-height: 24px;
-          text-align: center;
-          vertical-align: text-top;
-
+          display: none;
 
         }
-        /*
-        .ant-tree-title-left {
-          flex: 1;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .ant-tree-title {
-          display: flex;
+
+        .ant-tree-title-icon:hover {
+          color: rgba(41,47,61,.75);
+          background: rgba(41,47,61,.07);
         }
 
-
-        .ant-tree-title-right {
-          white-space: nowrap;
-          min-width: 0; /* or some value */
-          > div {
-            width: 30px;
-            height: 30px;
-            border-radius: 10px;
-            background: lightgreen;
-            display: inline-block;
-          }
-        }*/
 
 
         .ant-tree .ant-tree-node-content-wrapper .ant-tree-iconEle:empty {

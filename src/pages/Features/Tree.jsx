@@ -1,58 +1,31 @@
-import React, { useState } from "react";
-import { Tree } from "antd";
-import dummyData from "./util/fakeData";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faSpinner, faVolumeUp, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react"
+import { Tree } from "antd"
+import dummyData from "./dummyData/fakeData"
+import TabTitle from "./util/TabTitle"
 
 
 const antdTree = () => {
-  const { TreeNode } = Tree;
-  const [treeInfo, setTreeInfo] = useState(dummyData)
-
-  //setTreeInfo(dummyData);
-
-  const loop = (data, depth) => data.map((item) => {
-    let render;
-    const width = 220
-    const maxWidth = String((width) - (depth) * 16) + "px";
-
-    let icon = <img border="0" src={[chrome.runtime.getURL("icon-blank.png")]} style={{ width: "16px", height: "16px" }} />;
-
-
-    var title = (
-      <span>
-        <span className="ant-tree-title-left">
-          {item.status == "loading" ? item.url.includes("") ? "New Tab" : item.url : item.title}
-          {/*soundIcon*/}
-          {/*endIcon*/}
-
-        </span>
-        <span className="ant-tree-title-right">
-          <div></div>
-          <div></div>
-          <div></div>
-        </span>
-      </span>
-
-
-    );
-    if (item.children && item.children.length > 0) {
-      const newDepth = depth + 1;
-      render = <TreeNode {...item} icon={icon} key={item.key} title={title}>{loop(item.children, newDepth)}</TreeNode>;
-
-    } else {
-      render = <TreeNode {...item} icon={icon} key={item.key} title={title}></TreeNode>;
-    }
-    return render;
-  });
-
-
-
   const styles = {
     treeOuterWrapper: {
 
     }
   }
+  const [treeInfo, setTreeInfo] = useState(dummyData)
+  const { TreeNode } = Tree;
+  //setTreeInfo(dummyData);
+
+  const loop = (data) => data.map((item) => {
+    let render;
+    if (item.children && item.children.length > 0) {
+      render = <TreeNode {...item} key={item.key} title={<TabTitle item={item} />} >{loop(item.children)}</TreeNode>;
+
+    } else {
+      render = <TreeNode {...item} key={item.key} title={<TabTitle item={item} />} />;
+    }
+    return render;
+  });
+
+  const titleRender = item => <TabTitle key={item.key} item={item} />
   return (
     <div
       id={"treely_tree"}
@@ -88,14 +61,14 @@ const antdTree = () => {
           className="draggable-tree"
           blockNode
           draggable={true}
-        //onExpand={onExpand}
-        //onDrop={onDrop}
-        //onSelect={onDelete}
-        //onRightClick={onRightClick}
-        >
-          {loop(treeInfo.treeData, 0)}
+          //onExpand={onExpand}
+          //onDrop={onDrop}
+          //onSelect={onDelete}
+          //onRightClick={onRightClick}
+          treeData={treeInfo.treeData}
+          titleRender={titleRender}
+        />
 
-        </Tree>
         {
           /*
 
