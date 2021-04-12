@@ -2,12 +2,18 @@ import React, { useState } from "react"
 import { Tree } from "antd"
 import dummyData from "./dummyData/fakeData"
 import TabTitle from "./util/TabTitle"
-
+import NewTab from "./util/NewTab"
 
 const antdTree = () => {
   const styles = {
     treeOuterWrapper: {
 
+    },
+    seperationLine: {
+      margin: "0 10px 5px 10px"
+    },
+    newTabWrapper: {
+      margin: "0"
     }
   }
   const [treeInfo, setTreeInfo] = useState(dummyData)
@@ -52,6 +58,7 @@ const antdTree = () => {
 
       <div style={styles.treeWrapper}>
         <Tree
+          virtual
           //multiple
           showIcon
           //autoExpandParent={queryActive ? true : false}
@@ -84,6 +91,11 @@ const antdTree = () => {
 
 
       </div>
+      <hr style={styles.seperationLine} />
+      <div style={styles.newTabWrapper}>
+        <NewTab />
+      </div>
+
 
       {/**
        * Debugger
@@ -116,6 +128,7 @@ const antdTree = () => {
           Discard
           </button>
       </div>
+
        */
       }
 

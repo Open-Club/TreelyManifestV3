@@ -5,6 +5,8 @@ import { slide as Menu } from 'react-burger-menu'
 import ApplicationManager from "../Features/ApplicationManager"
 import ShadowRootStyle from '../Features/util/ShadowRootStyle'
 import ReactShadowRoot from 'react-shadow-root'
+import Header from "../Features/Header"
+import Search from "../Features/Search"
 
 const Content = () => {
 
@@ -80,13 +82,15 @@ const Content = () => {
             isOpen={indicatorHovered}
             onStateChange={(state) => setIndicatorHovered(state.isOpen)}
           >
+            <Header />
+            <Search />
             <ApplicationManager />
           </Menu>
 
         </ReactShadowRoot>
             /*
             */
-          }
+
 
 
       </div>

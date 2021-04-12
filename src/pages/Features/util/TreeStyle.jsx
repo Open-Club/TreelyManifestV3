@@ -332,7 +332,6 @@ const TreeStyle = () => {
           margin: 0;
           line-height: 24px;
           text-align: center;
-          cursor: pointer;
           -webkit-user-select: none;
             -moz-user-select: none;
               -ms-user-select: none;
@@ -344,7 +343,7 @@ const TreeStyle = () => {
         .ant-tree-switcher .ant-select-tree-switcher-icon {
           font-size: 12px;
           vertical-align: text-top;
-          color: rgba(41, 47, 61, 0.5);
+          color: #222;
         }
         .ant-tree-switcher .ant-tree-switcher-icon svg,
         .ant-tree-switcher .ant-select-tree-switcher-icon svg {
@@ -396,15 +395,19 @@ const TreeStyle = () => {
           line-height: 24px;
           background: transparent;
           border-radius: 0px;
-          cursor: pointer;
           transition: all 0.3s, border 0s, line-height 0s, box-shadow 0s;
           display: inline-block;
           width: 0;
           border-left: 3px solid transparent;
         }
-        .ant-tree .ant-tree-node-content-wrapper:hover {
+        .ant-tree .ant-tree-node-content-wrapper:hover{
           background-color: #f5f5f5;
         }
+        .ant-tree-new-tab-wrapper:hover {
+          background-color: #f5f5f5;
+          cursor: default;
+        }
+
 
         .ant-tree.ant-tree-block-node .ant-tree-list-holder-inner .ant-tree-node-content-wrapper:hover{
           border-left: 3px solid #393E46;
