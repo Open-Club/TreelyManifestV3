@@ -96,8 +96,10 @@ var options = {
             loader: 'source-map-loader',
           },
           {
-            loader: 'babel-loader',
+            loader: 'babel-loader'
+
           },
+
         ],
         exclude: /node_modules/,
       },

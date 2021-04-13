@@ -1,14 +1,28 @@
 /*global chrome*/
 import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM, { unmountComponentAtNode } from 'react-dom'
 import { slide as Menu } from 'react-burger-menu'
 import ApplicationManager from "../Features/ApplicationManager"
 import ShadowRootStyle from '../Features/util/ShadowRootStyle'
 import ReactShadowRoot from 'react-shadow-root'
 import Header from "../Features/Header"
 import Search from "../Features/Search"
+import Tailwind from "../Features/util/Tailwind"
+
 
 const Content = () => {
+
+  const { constructableStylesheetsSupported } = ReactShadowRoot;
+  //const tailWindStyles = Tailwind();
+
+  let sheet;
+  let styleSheets;
+
+  if (constructableStylesheetsSupported) {
+    sheet = new CSSStyleSheet();
+    //sheet.replaceSync(tailWindStyles);
+    styleSheets = [sheet];
+  }
 
   const [indicatorHovered, setIndicatorHovered] = useState(false);
 
@@ -75,7 +89,8 @@ const Content = () => {
         id={"treely_wrapper"}
         style={styles.wrapper}
       >
-        <ReactShadowRoot>
+
+        <ReactShadowRoot stylesheets={styleSheets}>
           <style>{ShadowRootStyle()}</style>
           <Menu
             styles={styles.burgerMenu}
@@ -88,8 +103,6 @@ const Content = () => {
           </Menu>
 
         </ReactShadowRoot>
-            /*
-            */
 
 
 
@@ -99,7 +112,9 @@ const Content = () => {
         style={styles.indicator}
         onMouseEnter={() => { setIndicatorHovered(true) }}
       //onMouseLeave={() => { setIndicatorHovered(false) }}
+
       />
+      <button onClick={() => { unmountComponentAtNode(document.getElementById('treely_app')); }}>UNMOUNT</button>
     </div>
 
 
