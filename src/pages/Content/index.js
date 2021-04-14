@@ -13,14 +13,14 @@ import Tailwind from "../Features/util/Tailwind"
 const Content = () => {
 
   const { constructableStylesheetsSupported } = ReactShadowRoot;
-  //const tailWindStyles = Tailwind();
+  const tailWindStyles = Tailwind();
 
   let sheet;
   let styleSheets;
 
   if (constructableStylesheetsSupported) {
     sheet = new CSSStyleSheet();
-    //sheet.replaceSync(tailWindStyles);
+    sheet.replaceSync(tailWindStyles);
     styleSheets = [sheet];
   }
 

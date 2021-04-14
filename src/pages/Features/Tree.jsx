@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Tree } from "antd"
+import Tree from "antd/es/tree"
 import dummyData from "./dummyData/fakeData"
 import TabTitle from "./util/TabTitle"
 import NewTab from "./util/NewTab"
